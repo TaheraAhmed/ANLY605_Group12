@@ -66,8 +66,8 @@ if st.button("Submit"):
     boxplot = alt.Chart(df).mark_boxplot().encode(
     x='reordered:N', y='uxp_reorder_ratio:Q', color='reordered:N')
 
-    scatter=alt.Chart(df2).mark_circle().encode(
-    x='reordered:N', y='uxp_reorder_ratio:Q', color='red')
+    scatter=alt.Chart(df2).mark_circle(color='red').encode(
+    x='reordered:N', y='uxp_reorder_ratio:Q')
 
     final=boxplot+scatter
     st.altair_chart(final, use_container_width=True)
