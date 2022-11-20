@@ -15,7 +15,7 @@ st.header("InstaCart Reordering Prediction App")
 df = pd.read_csv('train_dataset.csv')
 
 fig = alt.Chart(df).mark_boxplot().encode(
-    x='reordered:O', y='uxp_reorder_ratio:Q', size='c', color='c')
+    x='reordered:O', y='uxp_reorder_ratio:Q', color='reordered')
         
 st.altair_chart(fig, use_container_width=True)
 
