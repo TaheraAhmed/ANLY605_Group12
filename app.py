@@ -13,7 +13,7 @@ st.header("InstaCart Reordering Prediction App")
 
 df = pd.read_csv('train_dataset.csv')
         
-fig = px.box(df, y="reordered")
+fig = px.box(df,x='reordered', y="uxp_reorder_ratio")
 st.plotly_chart(fig, use_container_width=True)
 
 
