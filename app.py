@@ -17,12 +17,11 @@ df = pd.read_csv('train_dataset.csv')
 boxplot = alt.Chart(df).mark_boxplot().encode(
     x='reordered:N', y='uxp_reorder_ratio:Q', color='reordered:N')
 
-scatter = alt.Chart(df).mark_boxplot().encode(
-    x='reordered:N', y='u_p_total:Q', color='reordered:N')
+
 
         
 st.altair_chart(boxplot, use_container_width=True)
-st.altair_chart(scatter, use_container_width=True)
+
 
 
 # Input bar 1
@@ -68,7 +67,7 @@ if st.button("Submit"):
     x='reordered:N', y='uxp_reorder_ratio:Q', color='reordered:N')
 
     scatter=alt.Chart(df2).mark_circle().encode(
-    x='reordered:N', y='uxp_reorder_ratio:Q', color='reordered:N')
+    x='reordered:N', y='uxp_reorder_ratio:Q', color='red')
 
     final=boxplot+scatter
     st.altair_chart(final, use_container_width=True)
