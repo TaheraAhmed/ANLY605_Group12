@@ -17,10 +17,14 @@ df = pd.read_csv('train_dataset.csv')
 boxplot = alt.Chart(df).mark_boxplot().encode(
     x='reordered:N', y='uxp_reorder_ratio:Q', color='reordered:N')
 
+boxplot2 = alt.Chart(df).mark_boxplot().encode(
+    x='reordered:N', y='u_p_total:Q', color='reordered:N')
+
 
 
         
 st.altair_chart(boxplot, use_container_width=True)
+st.altair_chart(boxplot2, use_container_width=True)
 
 
 
@@ -71,6 +75,15 @@ if st.button("Submit"):
 
     final=boxplot+scatter
     st.altair_chart(final, use_container_width=True)
+
+    boxplot2 = alt.Chart(df).mark_boxplot().encode(
+    x='reordered:N', y='u_p_total:Q', color='reordered:N')
+
+    scatter2=alt.Chart(df2).mark_circle(color='red').encode(
+    x='reordered:N', y='u_p_total:Q')
+
+    final2=boxplot2+scatter2
+    st.altair_chart(final2, use_container_width=True)
     
     # Output prediction
     st.text(f"This product will be {prediction}")
