@@ -57,7 +57,7 @@ if st.button("Submit"):
 
 
     
-    fig=px.box(data=X,x='reordered', y="uxp_reorder_ratio")
+    fig=px.box(X,x='reordered', y="uxp_reorder_ratio")
     st.plotly_chart(fig, use_container_width=True)
     
     # Output prediction
