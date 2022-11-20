@@ -62,7 +62,7 @@ if st.button("Submit"):
     # Get prediction
     prediction = clf.predict(X)[0]
 
-    df2 = pd.DataFrame({'u_p_total':u_p_total,'uxp_reorder_ratio':uxp_reorder_ratio,'reordered':prediction})
+    df2 = pd.DataFrame({'u_p_total':u_p_total,'uxp_reorder_ratio':uxp_reorder_ratio,'reordered':prediction},index=[0])
 
     boxplot = alt.Chart(df).mark_boxplot().encode(
     x='reordered:N', y='uxp_reorder_ratio:Q', color='reordered:N')
