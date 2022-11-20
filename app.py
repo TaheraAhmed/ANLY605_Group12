@@ -4,6 +4,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 
+import altair as alt
 
 import plotly.express as px
 import plotly.graph_objects as go
@@ -13,12 +14,10 @@ st.header("InstaCart Reordering Prediction App")
 
 df = pd.read_csv('train_dataset.csv')
 
-fig = go.Figure()
-
-fig=fig.add_trace(go.Box(x=df['reordered'],y=df['uxp_reorder_ratio']  
+fig = alt.Chart(df).mark_boxplot().encode(
+    x='reordered', y='uxp_reorder_ratio', size='c', color='c')
         
 st.plotly_chart(fig, use_container_width=True)
-
 
 
 # Input bar 1
@@ -59,8 +58,8 @@ if st.button("Submit"):
     X['reordered']=prediction
 
 
-    
     fig=px.box(X,x='reordered', y="uxp_reorder_ratio")
+                         
     st.plotly_chart(fig, use_container_width=True)
     
     # Output prediction
