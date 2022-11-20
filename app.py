@@ -17,7 +17,7 @@ df = pd.read_csv('train_dataset.csv')
 fig = alt.Chart(df).mark_boxplot().encode(
     x='reordered', y='uxp_reorder_ratio', size='c', color='c')
         
-st.plotly_chart(fig, use_container_width=True)
+st.altair_chart(fig, use_container_width=True)
 
 
 # Input bar 1
@@ -56,11 +56,6 @@ if st.button("Submit"):
     # Get prediction
     prediction = clf.predict(X)[0]
     X['reordered']=prediction
-
-
-    fig=px.box(X,x='reordered', y="uxp_reorder_ratio")
-                         
-    st.plotly_chart(fig, use_container_width=True)
     
     # Output prediction
     st.text(f"This product will be {prediction}")
