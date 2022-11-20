@@ -15,7 +15,7 @@ df = pd.read_csv('train_dataset.csv')
 
 fig = go.Figure()
 
-fig.add_trace(go.Box(x=df['reordered'],y=df['uxp_reorder_ratio']  
+fig=fig.add_trace(go.Box(x=df['reordered'],y=df['uxp_reorder_ratio']  
         
 st.plotly_chart(fig, use_container_width=True)
 
