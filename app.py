@@ -64,10 +64,14 @@ if st.button("Submit"):
 
     df2 = pd.DataFrame({'u_p_total':u_p_total,'uxp_reorder_ratio':uxp_reorder_ratio,'reordered':prediction})
 
-    df.add(df2)
+    boxplot = alt.Chart(df).mark_boxplot().encode(
+    x='reordered:N', y='uxp_reorder_ratio:Q', color='reordered:N')
 
-    
+    scatter=alt.Chart(df2).mark_circle().encode(
+    x='reordered:N', y='uxp_reorder_ratio:Q', color='reordered:N')
 
+    final=boxplot+scatter
+    st.altair_chart(final, use_container_width=True)
     
     # Output prediction
     st.text(f"This product will be {prediction}")
