@@ -6,14 +6,17 @@ import joblib
 
 
 import plotly.express as px
-
+import plotly.graph_objects as go
 
 # Title
 st.header("InstaCart Reordering Prediction App")
 
 df = pd.read_csv('train_dataset.csv')
+
+fig = go.Figure()
+
+fig.add_trace(go.Box(x=df['reordered'],y=x=df['uxp_reorder_ratio']  
         
-fig = px.box(df,x='reordered', y="uxp_reorder_ratio")
 st.plotly_chart(fig, use_container_width=True)
 
 
