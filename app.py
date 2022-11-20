@@ -4,7 +4,6 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-from zipfile import ZipFile
 
 import plotly.express as px
 
@@ -12,10 +11,7 @@ import plotly.express as px
 # Title
 st.header("InstaCart Reordering Prediction App")
 
-with ZipFile('data.zip','w') as zip:
-        # writing each file one by one
-        
-        df = pd.read_csv('data/train_dataset.csv')
+df = pd.read_csv('train_dataset.csv')
         
 fig = px.box(df, y="reordered")
 st.plotly_chart(fig, use_container_width=True)
