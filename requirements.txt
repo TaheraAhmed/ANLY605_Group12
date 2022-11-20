@@ -7,3 +7,4 @@ matplotlib
 lightgbm
 xgboost==1.5.0
 plotly
+altair
