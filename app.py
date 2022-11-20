@@ -56,13 +56,18 @@ if st.button("Submit"):
     X = pd.DataFrame([[u_p_total, uxp_reorder_ratio, u_total_orders,u_reordered_ratio,p_total,p_reordered_ratio]], 
                      columns = ["u_p_total", "uxp_reorder_ratio", "u_total_orders",'u_reordered_ratio',"p_total","p_reordered_ratio"])
 
-    
 
     
     
     # Get prediction
     prediction = clf.predict(X)[0]
-    X['reordered']=prediction
+
+    df2 = pd.DataFrame({'u_p_total':u_p_total,'uxp_reorder_ratio':uxp_reorder_ratio,'reordered':prediction})
+
+    df.add(df2)
+
+    
+
     
     # Output prediction
     st.text(f"This product will be {prediction}")
